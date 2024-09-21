@@ -7,10 +7,12 @@ import { DUMMY_USERS } from './dummy';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent,ListTaskComponent,],
+  imports: [HeaderComponent,ListTaskComponent,AddtaskComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  task : any =DUMMY_USERS;
+
 
 }
