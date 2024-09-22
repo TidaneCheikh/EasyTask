@@ -11,8 +11,19 @@ import { DUMMY_USERS } from './dummy';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  task : any =DUMMY_USERS;
 
+
+export class AppComponent {
+  tasks =DUMMY_USERS;
+  userSelect ="u1";
+
+  get SelectUser(){
+    return this.tasks.find((task) =>task.id === this.userSelect)!;
+  }
+
+
+  OnSelectUser(id :string){
+   this.userSelect=id
+  }
 
 }

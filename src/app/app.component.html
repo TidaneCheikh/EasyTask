@@ -2,21 +2,13 @@
 
 <main>
   <ul id="users">
-    <li>
-      <app-list-task [avatar]="task[0].avatar" [name]="task[0].name"></app-list-task>
-    </li>
+    @for (user of tasks; track user.id) {
+      <li>
+        <app-list-task [user]="user" (select)="OnSelectUser($event)"></app-list-task>
+      </li>
+    }
 
-    <li>
-      <app-list-task [avatar]="task[1].avatar" [name]="task[1].name"></app-list-task>
-    </li>
-    <li>
-      <app-list-task [avatar]="task[2].avatar" [name]="task[2].name"></app-list-task>
-    </li>
-    <li>
-      <app-list-task [avatar]="task[3].avatar" [name]="task[3].name"></app-list-task>
-    </li>
-    <li>
-      <app-list-task [avatar]="task[4].avatar" [name]="task[4].name"></app-list-task>
-    </li>
   </ul>
+  <app-addtask [name]="SelectUser.name"></app-addtask>
 </main>
+

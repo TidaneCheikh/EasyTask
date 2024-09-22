@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-addtask',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './addtask.component.css'
 })
 export class AddtaskComponent {
+@Input() name !: string;
 
 }

@@ -1,7 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../dummy';
 import { AddtaskComponent } from '../addtask/addtask.component';
 
+interface User{
+  id:string;
+  avatar : string ;
+  name : string ;
+
+}
 @Component({
   selector: 'app-list-task',
   standalone: true,
@@ -9,13 +15,14 @@ import { AddtaskComponent } from '../addtask/addtask.component';
   templateUrl: './list-task.component.html',
   styleUrl: './list-task.component.css'
 })
+
+
 export class ListTaskComponent {
-  @Input() id! : string ;
-  @Input() avatar! : string ;
-  @Input({required:true}) name! : string ;
+  @Input({required:true}) user! : User;
+  @Output() select = new EventEmitter();
 
   OnSelectUser(){
-    console.log(this.name);
+    this.select.emit(this.user.id)
 
 
   }
