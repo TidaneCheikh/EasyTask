@@ -1,13 +1,9 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../dummy';
 import {  tasksComponent } from '../tasks/tasks.component';
+import { User } from './list-task.model';
 
-interface User{
-  id:string;
-  avatar : string ;
-  name : string ;
 
-}
 @Component({
   selector: 'app-list-task',
   standalone: true,
@@ -19,6 +15,7 @@ interface User{
 
 export class ListTaskComponent {
   @Input({required:true}) user! : User;
+  @Input({required :true }) Selected !:boolean;
   @Output() select = new EventEmitter();
 
   OnSelectUser(){
