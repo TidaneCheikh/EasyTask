@@ -3,11 +3,12 @@ import { tasksComponent } from './tasks/tasks.component';
 import { HeaderComponent } from "./header/header.component";
 import { ListTaskComponent } from './list-task/list-task.component';
 import { DUMMY_USERS } from './dummy';
+import { NewTaskComponent } from "./tasks/new-task/new-task.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent,ListTaskComponent,tasksComponent],
+  imports: [HeaderComponent, ListTaskComponent, tasksComponent, NewTaskComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -16,6 +17,7 @@ import { DUMMY_USERS } from './dummy';
 export class AppComponent {
   tasks =DUMMY_USERS;
   userSelect ="u1";
+isAdd: any;
 
   get SelectUser(){
     return this.tasks.find((task) =>task.id === this.userSelect)!;
@@ -25,5 +27,6 @@ export class AppComponent {
   OnSelectUser(id :string){
    this.userSelect=id
   }
+
 
 }
