@@ -4,11 +4,14 @@
   <ul id="users">
     @for (user of tasks; track user.id) {
       <li>
-        <app-list-task [Selected]="user.id===SelectUser.id" [user]="user" (select)="OnSelectUser($event)"></app-list-task>
+        <app-user [Selected]="user.id===SelectUser.id" [users]="user" (select)="OnSelectUser($event)"></app-user>
       </li>
     }
 
   </ul>
+  @if (isAdd) {
+    <app-new-task></app-new-task>
+  }
   <app-tasks [userId]="SelectUser.id" [name]="SelectUser.name"></app-tasks>
 </main>
 

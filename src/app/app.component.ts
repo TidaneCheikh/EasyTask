@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { tasksComponent } from './tasks/tasks.component';
 import { HeaderComponent } from "./header/header.component";
-import { ListTaskComponent } from './list-task/list-task.component';
+import { ListTaskComponent } from './users/user.component';
 import { DUMMY_USERS } from './dummy';
 import { NewTaskComponent } from "./tasks/new-task/new-task.component";
 

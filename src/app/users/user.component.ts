@@ -1,25 +1,25 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../dummy';
 import {  tasksComponent } from '../tasks/tasks.component';
-import { User } from './list-task.model';
+import { User } from './user.model';
 
 
 @Component({
-  selector: 'app-list-task',
+  selector: 'app-user',
   standalone: true,
   imports: [tasksComponent],
-  templateUrl: './list-task.component.html',
-  styleUrl: './list-task.component.css'
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.css'
 })
 
 
 export class ListTaskComponent {
-  @Input({required:true}) user! : User;
+  @Input({required:true}) users! : User;
   @Input({required :true }) Selected !:boolean;
   @Output() select = new EventEmitter();
 
   OnSelectUser(){
-    this.select.emit(this.user.id)
+    this.select.emit(this.users.id)
 
 
   }
