@@ -1,7 +1,7 @@
-import { Component, EventEmitter, NgModule, output, Output } from '@angular/core';
-import { Add } from '../tasks.model';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NewTask } from './new-task.model';
+import { NewTask } from '../task/task.model';
+
 
 
 @Component({
