@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
-import { Add } from './tasks.model';
 import { NewTask } from './new-task/new-task.model';
-import { title } from 'process';
+
 
 @Component({
   selector: 'app-tasks',
@@ -15,7 +14,6 @@ import { title } from 'process';
 export class tasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
-  @Input() ajouter =new Add();
   isAdd=false;
   tasks = [
     {
@@ -58,9 +56,9 @@ export class tasksComponent {
     this.isAdd=false;
   }
   OnAddNewTask(taskData : NewTask){
-    this.tasks.push({
-      id: 't4',
-      userId: 'u4',
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
       title:   taskData.title,
       summary:taskData.summary,
       dueDate: taskData.date,

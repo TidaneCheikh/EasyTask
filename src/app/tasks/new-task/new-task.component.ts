@@ -2,7 +2,7 @@ import { Component, EventEmitter, NgModule, output, Output } from '@angular/core
 import { Add } from '../tasks.model';
 import { FormsModule } from '@angular/forms';
 import { NewTask } from './new-task.model';
-import { title } from 'process';
+
 
 @Component({
   selector: 'app-new-task',
@@ -13,7 +13,7 @@ import { title } from 'process';
 })
 export class NewTaskComponent {
   @Output() cancel = new EventEmitter();
-  @Output() Newtask = new EventEmitter<NewTask >()
+  @Output() add = new EventEmitter<NewTask >()
   Entertitle='';
   EnterSummary='';
   EnterDate='';
@@ -24,7 +24,7 @@ export class NewTaskComponent {
 
 }
 OnSubmit(){
-  return this.Newtask.emit({
+  this.add.emit({
     title : this.Entertitle,
     summary:this.EnterSummary,
     date : this.EnterDate}
