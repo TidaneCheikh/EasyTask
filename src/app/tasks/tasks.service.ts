@@ -34,6 +34,7 @@ export class Tasks{
    getUsers(userId : string) {
     return this.tasks.filter((task) => task.userId === userId);
   }
+  
   addTask(taskData: NewTask, userId: string) {
     this.tasks.unshift({
       id: new Date().getTime().toString(),
