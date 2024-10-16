@@ -1,3 +1,7 @@
+
+import { Injectable } from "@angular/core";
+import { NewTask, Task } from "./task/task.model";
+@Injectable({ providedIn: 'root' })
 export class Tasks{
 
  private tasks = [
@@ -30,6 +34,17 @@ export class Tasks{
    getUsers(userId : string) {
     return this.tasks.filter((task) => task.userId === userId);
   }
+  addTask(taskData: NewTask, userId: string) {
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      userId: userId,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+    });
+  }
+
+
   OnRemoveTask(id : string){
     return this.tasks= this.tasks.filter((task)=> task.id !== id)
 
